@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { supabaseConfigured } from '@/integrations/supabase/client';
 import { Navigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -28,14 +29,25 @@ export default function LoginPage() {
           <p className="text-muted-foreground">Student Learning Platform</p>
         </div>
 
-        <Tabs defaultValue="login" className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="login">Sign In</TabsTrigger>
-            <TabsTrigger value="register">Register</TabsTrigger>
-          </TabsList>
-          <TabsContent value="login"><LoginForm /></TabsContent>
-          <TabsContent value="register"><RegisterForm /></TabsContent>
-        </Tabs>
+        {!supabaseConfigured ? (
+          <Card>
+            <CardHeader>
+              <CardTitle>Configuration Required</CardTitle>
+              <CardDescription>
+                Please set the <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code> environment secrets to connect to your Supabase project.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        ) : (
+          <Tabs defaultValue="login" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="login">Sign In</TabsTrigger>
+              <TabsTrigger value="register">Register</TabsTrigger>
+            </TabsList>
+            <TabsContent value="login"><LoginForm /></TabsContent>
+            <TabsContent value="register"><RegisterForm /></TabsContent>
+          </Tabs>
+        )}
       </div>
     </div>
   );
