@@ -1,0 +1,5 @@
+# Supabase Configuration
+# This app uses the unified backend from the teacher app (quickscan-insight)
+# All edge functions and migrations are managed in the teacher app
+
+project_id = "dvkarvdcstavlhnaoisr"
