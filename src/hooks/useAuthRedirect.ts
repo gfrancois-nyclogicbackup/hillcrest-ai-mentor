@@ -32,6 +32,12 @@ export const useAuthRedirect = () => {
 
     const checkAuth = async () => {
       try {
+        // Don't redirect on root path - let Landing render
+        if (location.pathname === "/") {
+          setIsLoading(false);
+          return;
+        }
+
         const { data: { session } } = await supabase.auth.getSession();
 
         if (!mounted) return;
