@@ -61,7 +61,7 @@ export const useAuthRedirect = () => {
           if (isPublicRoute(location.pathname) && !isVerifyEmailRoute(location.pathname)) {
             navigate(getTargetPath(role), { replace: true });
           }
-        } else if (!isPublicRoute(location.pathname)) {
+        } else if (!isPublicRoute(location.pathname) && location.pathname !== "/") {
           navigate("/auth", { replace: true });
         }
       } catch (error) {
