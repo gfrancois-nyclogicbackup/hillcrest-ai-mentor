@@ -7,6 +7,7 @@ import { PoweredByFooter } from "@/components/PoweredByFooter";
 import { Star, Trophy, Flame, Users, BookOpen, Sparkles, Gift, Shield, AlertTriangle, Award, Heart, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 import hillcrestComboLogo from "@/assets/hillcrest-nyclogic-combo.svg";
+import hillcrestSchoolLogo from "@/assets/hillcrest-logo-new.png";
 import nycologicLogo from "@/assets/nycologic-main-logo.png";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { WhatsNew, WhatsNewButton } from "@/components/WhatsNew";
@@ -92,11 +93,11 @@ export default function Landing() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center mb-12"
           >
-            {/* Hillcrest + NYClogic Combo Logo */}
+            {/* Hillcrest School Logo/Seal */}
             <img 
-              src={hillcrestComboLogo} 
+              src={hillcrestSchoolLogo} 
               alt="Hillcrest Scholar Ai" 
-              className="w-full max-w-xl md:max-w-2xl object-contain drop-shadow-2xl"
+              className="w-full max-w-md md:max-w-xl object-contain drop-shadow-2xl"
             />
             
             {/* App Name */}
